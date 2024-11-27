@@ -42,8 +42,8 @@
               </span>
             </div>
             <%= link_to 'More info', flat_path(flat), class: 'btn btn-link mt-2' %>
-            <a href="#" class="btn btn-link mt-2">Edit</a>
-            <a href="#" class="btn btn-link mt-2">Remove</a>
+             <%= link_to 'Edit', edit_flat_path(flat), class: 'btn btn-sm btn-outline-primary' %>
+            <%= link_to 'Remove', flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "are you sure ?" }, class: 'btn btn-sm btn-outline-danger' %>
           </div>
         </div>
       </div>

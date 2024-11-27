@@ -11,7 +11,7 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(params_flat)
     if @flat.save
-      redirect_to flats_path(@flat)
+      redirect_to flat_path(@flat)
     else
       render :new, status: :unprocessable_entity
     end
@@ -19,6 +19,22 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+  end
+
+  def edit
+    @flat = Flat.find(params[:id])
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    @flat.update(params_flat)
+    redirect_to flat_path(@flat)
+  end
+
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_path status: :see_other
   end
 
   private
